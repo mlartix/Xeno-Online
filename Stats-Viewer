@@ -1,0 +1,126 @@
+local WallyUI = loadstring(game:HttpGet"https://raw.githubusercontent.com/Kiwi-i/wallys-ui-fork/master/lib.lua")()
+
+local w = WallyUI:CreateWindow('Xeno Online')
+
+w:Section("┃━━━━━━Stats━━━━━━┃")
+w:Section('Battle Power')
+w:Section('Health')
+w:Section('Ki')
+w:Section('Stamina')
+w:Section('Made by : Tee Hee#1294')
+local strformat = string.format;
+local BP = game.Players.LocalPlayer.Character.Config.BattlePower
+local Health = game.Players.LocalPlayer.Character.Health
+local Ki = game.Players.LocalPlayer.Ki
+local Stamina = game.Players.LocalPlayer.Stamina
+
+for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+    if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+        for i2,v2 in pairs(v:GetDescendants()) do 
+            if v2:IsA("TextLabel") and v2.Name == "section_lbl" and v2.Text == "Battle Power" then 
+                v2.Text = strformat("Battle Power : [%d]" , BP.Value) 
+            elseif v2:IsA("TextLabel") and v2.Name == "section_lbl" and v2.Text == "Health" then 
+                v2.Text = strformat("Health : [%d/%d]" , Health.Value, Health.MaxValue)
+            elseif v2:IsA("TextLabel") and v2.Name == "section_lbl" and v2.Text == "Ki" then 
+                v2.Text = strformat("Ki : [%d/%d]" ,Ki.Value, Ki.MaxValue)
+            elseif v2:IsA("TextLabel") and v2.Name == "section_lbl" and v2.Text == "Stamina" then 
+                v2.Text = strformat("Stamina : [%d/%d]" , Stamina.Value, Stamina.MaxValue)
+            end
+        end
+    end
+end
+
+BP:GetPropertyChangedSignal("Value"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Battle Power") then 
+                    v2.Text = strformat("Battle Power : [%d]" , BP.Value) 
+                end
+            end
+        end
+    end
+end)
+
+Health:GetPropertyChangedSignal("Value"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Health") then 
+                    v2.Text = strformat("Health : [%d/%d]" , Health.Value, Health.MaxValue)
+                end
+            end
+        end
+    end
+end)
+
+Ki:GetPropertyChangedSignal("Value"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Ki") then 
+                    v2.Text = strformat("Ki : [%d/%d]" ,Ki.Value, Ki.MaxValue)
+                end
+            end
+        end
+    end
+end)
+
+Stamina:GetPropertyChangedSignal("Value"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Stamina") then 
+                    v2.Text = strformat("Stamina : [%d/%d]" , Stamina.Value, Stamina.MaxValue)
+                end
+            end
+        end
+    end
+end)    
+
+Health:GetPropertyChangedSignal("MaxValue"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Health") then 
+                    v2.Text = strformat("Health : [%d/%d]" , Health.Value, Health.MaxValue)
+                end
+            end
+        end
+    end
+end)
+
+Ki:GetPropertyChangedSignal("MaxValue"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Ki") then 
+                    v2.Text = strformat("Ki : [%d/%d]" ,Ki.Value, Ki.MaxValue)
+                end
+            end
+        end
+    end
+end)
+
+Stamina:GetPropertyChangedSignal("MaxValue"):Connect(function()
+    for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+       if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+            for i2,v2 in pairs(v:GetDescendants()) do 
+                if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Stamina") then 
+                    v2.Text = strformat("Stamina : [%d/%d]" , Stamina.Value, Stamina.MaxValue)
+                end
+            end
+        end
+    end
+end)  
+
+for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do 
+   if v:IsA("ScreenGui") and v.Name == "ScreenGui" and v:FindFirstChild("Container"):FindFirstChild("Xeno Online"):FindFirstChild("container"):FindFirstChild("Section")  then 
+        for i2,v2 in pairs(v:GetDescendants()) do 
+            if v2:IsA("TextLabel") and v2.Name == "section_lbl" and string.match(v2.Text, "Made by") then 
+                v2.TextColor3 = Color3.new(1, 1, 0.61)
+            end
+        end
+    end
+end
+    
